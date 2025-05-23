@@ -1,2 +1,37 @@
 Please add your pseudocode to this file
+
+Steps to Solve:
+
+1. Initialze an empty result array
+2. Loop through each character in the string. Outer loop?
+  - This will be the starting index of the substring
+3. For each starting index, loop from that position to the end of the string, inner loop:
+  - This is the ending index of the substring
+  - Slice out the substring from the start to the end.
+  - Push this substring to the result array
+4. Return the result array
+
+function consecutiveSubStrings(string):
+  result = []
+  loop for i from 0 to string.length -1:
+    for j from i + 1 to string.length:
+      substring = string.slice(i, j)
+      push substring to result array
+  
+  return the result array
+
 And a written explanation of your solution
+
+For every possible starting spot, grab every possible chunk of consecutive letter from there to the end..
+
+Algorith Chosen: Nested loops. We need every possible consecutive substring, and the number of possible substrings grows quadratically with the string length.
+This is a simple and guarantees every consecutive substring is included.
+This way also preserves the order like the example provided
+This performance should be plenty for what we are trying to do. Maybe with larger words or dataset I would try something else?
+
+We will loop through each character in the string, trating it as the starting point of possible substrings.
+For each start, we will use another loop to build all of the substrings that begin at this posiiton, then every
+other position after it, finishing at the end of the string. We extract these substrings adn add them to a results
+array. This ensures all consecutive substrings are captured and because the outer and inner loops are in order, substrings
+appear in the required sequence. Considering O notation. I think the time complexity for this will be o(n^2) due to the nested loops.
+This should suffice for the short query.
